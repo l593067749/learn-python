@@ -1,0 +1,6 @@
+.svn/
+.idea/
+*.iml
+target/
+log/
+work/
