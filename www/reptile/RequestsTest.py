@@ -4,10 +4,12 @@ import requests
 class RequestsTest(object):
     def getUrl(self,url,params={},headers={},cookies={}):
         r=requests.get(url,params=params,headers=headers,cookies=cookies)
-        print r.status_code
-        print r.encoding
-        print r.cookies
-        print r.text
+        #r.encoding="utf-8"
+        #print r.status_code
+        #print r.encoding
+        #print r.cookies
+        #print r.text
+        return r
 
 
     def postUrl(self,url,params={},headers={},files={},cookies={}):
@@ -21,14 +23,15 @@ class RequestsTest(object):
         r = s.get("http://httpbin.org/cookies")
         print r.text
 
-reqTest=RequestsTest()
+    def test(self):
+        reqTest=RequestsTest()
 
-reqTest.sessionManage()
-# http://httpbin.org 是一个公共的测试网址
-reqTest.getUrl("http://www.baidu.com")
-# post test
-params = {'key1': 'value1', 'key2': 'value2'}
-files  ={'file': open('../../log/test.log', 'rb')}
-postR=reqTest.postUrl("http://httpbin.org/post",params=params,files=files)
-print postR.text
+        reqTest.sessionManage()
+        # http://httpbin.org 是一个公共的测试网址
+        reqTest.getUrl("http://www.baidu.com")
+        # post test
+        params = {'key1': 'value1', 'key2': 'value2'}
+        files  ={'file': open('../../log/test.log', 'rb')}
+        postR=reqTest.postUrl("http://httpbin.org/post",params=params,files=files)
+        print postR.text
 
